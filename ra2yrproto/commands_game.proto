@@ -9,6 +9,12 @@ message UnitOrder {
   ra2yrproto.ra2yr.UnitAction action = 2;
   uint32 target_object = 3;
   ra2yrproto.ra2yr.Coordinates coordinates = 4;
+  // Optional stale-address guard. If non-empty, must have the same length as
+  // object_addresses; element i is the Object.unique_id the client saw at
+  // object_addresses[i]. The order is rejected if any object's ID differs.
+  repeated uint32 object_unique_ids = 5;
+  // Optional Object.unique_id of target_object. 0 = not checked.
+  uint32 target_unique_id = 6;
 }
 
 message ProduceOrder {
