@@ -168,6 +168,8 @@ message Factory {
   repeated uint32 queued_objects = 4;
   bool on_hold = 5;
   bool completed = 6;
+  // AbstractClass::UniqueID of the object being produced, 0 if none.
+  uint32 object_unique_id = 7;
 }
 
 message House {
@@ -259,6 +261,9 @@ message Object {
   Mission current_mission = 18;
   bool in_limbo = 19;
   bool on_map = 20;
+  // AbstractClass::UniqueID. Unlike pointer_self, it is never reused within
+  // a scenario.
+  uint32 unique_id = 21;
 }
 
 enum LoadStage {
