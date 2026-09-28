@@ -238,6 +238,10 @@ message ObjectTypeClass {
   bool requires_stolen_third_tech = 23;
   uint32 pointer_cameo = 24;
   int32 strength = 25;
+  // AbstractTypeClass::ID, the rules section name (e.g. "AMCV"). Unlike name
+  // (the INI Name= value, e.g. "Allied Construction Vehicle"), it is unique
+  // and does not change with the ruleset's display text.
+  string id = 26;
 }
 
 message Object {
